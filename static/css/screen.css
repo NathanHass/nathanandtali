@@ -1,0 +1,723 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+img {
+  line-height: 0;
+  vertical-align: middle;
+}
+
+nav ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+body {
+  font: 13px/1.231 sans-serif;
+  *font-size: small;
+  /*text-rendering: optimizeLegibility;*/
+  /* this causes problems in Chrome for Windows and on iOS */
+  -webkit-overflow-scrolling: touch;
+}
+
+select, input, textarea, button {
+  font: 99% sans-serif;
+}
+
+pre, code, kbd, samp {
+  font-family: monospace, sans-serif;
+}
+
+body, select, input, textarea {
+  color: #444;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+a:hover, a:active {
+  outline: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+nav ul, nav li {
+  margin: 0;
+}
+
+small {
+  font-size: 85%;
+}
+
+strong, th {
+  font-weight: bold;
+}
+
+td, td img {
+  vertical-align: top;
+}
+
+sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+pre {
+  padding: 15px;
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+
+textarea {
+  overflow: auto;
+}
+
+.ie6 legend, .ie7 legend {
+  margin-left: -7px;
+}
+
+input[type="radio"] {
+  vertical-align: text-bottom;
+}
+
+input[type="checkbox"] {
+  vertical-align: bottom;
+}
+
+.ie7 input[type="checkbox"] {
+  vertical-align: baseline;
+}
+
+.ie6 input {
+  vertical-align: text-bottom;
+}
+
+label, input[type=button], input[type=submit], button {
+  cursor: pointer;
+}
+
+button, input, select, textarea {
+  margin: 0;
+}
+
+input:invalid, textarea:invalid {
+  border-radius: 1px;
+  box-shadow: 0px 0px 5px red;
+}
+
+.no-boxshadow input:invalid,
+.no-boxshadow textarea:invalid {
+  background-color: #f0dddd;
+}
+
+::-moz-selection {
+  background: #1d78af;
+  color: #FFF;
+  text-shadow: none;
+}
+
+::selection {
+  background: #1d78af;
+  color: #FFF;
+  text-shadow: none;
+}
+
+a:link {
+  -webkit-tap-highlight-color: #1d78af;
+}
+
+button {
+  width: auto;
+  overflow: visible;
+}
+
+.ie7 img {
+  -ms-interpolation-mode: bicubic;
+}
+
+.clearfix:before, .clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.a11y-only {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+.ui-block:last-child,
+.ui-block.last {
+  margin-right: 0;
+}
+
+@font-face {
+  font-family: "Circular";
+  src: url("/static/fonts/circular-book.eot");
+  src: local("☺"), url("/static/fonts/circular-book.eot?iefix") format("eot"), url("/static/fonts/circular-book.woff") format("woff"), url("/static/fonts/circular-book.svg") format("svg"), local("☺");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Circular";
+  src: url("/static/fonts/circular-book-italic.eot");
+  src: local("☺"), url("/static/fonts/circular-book-italic.eot?iefix") format("eot"), url("/static/fonts/circular-book-italic.woff") format("woff"), url("/static/fonts/circular-book-italic.svg") format("svg"), local("☺");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Circular";
+  src: url("/static/fonts/circular-bold.eot");
+  src: local("☺"), url("/static/fonts/circular-bold.eot?iefix") format("eot"), url("/static/fonts/circular-bold.woff") format("woff"), url("/static/fonts/circular-bold.svg") format("svg"), local("☺");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Circular";
+  src: url("/static/fonts/circular-black.eot");
+  src: local("☺"), url("/static/fonts/circular-black.eot?iefix") format("eot"), url("/static/fonts/circular-black.woff") format("woff"), url("/static/fonts/circular-black.svg") format("svg"), local("☺");
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Tiempos";
+  src: url("/static/fonts/TiemposHeadlineWeb-Black.eot");
+  src: local("☺"), url("/static/fonts/TiemposHeadlineWeb-Black.eot?iefix") format("eot"), url("/static/fonts/TiemposHeadlineWeb-Black.woff") format("woff"), url("/static/fonts/TiemposHeadlineWeb-Black.svg") format("svg"), local("☺");
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Tiempos";
+  src: url("/static/fonts/Tiempos-HeadlineWeb-Black.eot");
+  src: local("☺"), url("/static/fonts/Tiempos-HeadlineWeb-Black.eot?iefix") format("eot"), url("/static/fonts/Tiempos-HeadlineWeb-Black.woff") format("woff"), url("/static/fonts/Tiempos-HeadlineWeb-Black.svg") format("svg"), local("☺");
+  font-weight: 900;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Tiempos";
+  src: url("/static/fonts/TiemposTextWeb-Regular.eot");
+  src: local("☺"), url("/static/fonts/TiemposTextWeb-Regular.eot?iefix") format("eot"), url("/static/fonts/TiemposTextWeb-Regular.woff") format("woff"), url("/static/fonts/TiemposTextWeb-Regular.svg") format("svg"), local("☺");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Tiempos";
+  src: url("/static/fonts/TiemposTextWeb-Regular.eot");
+  src: local("☺"), url("/static/fonts/TiemposTextWeb-Regular.eot?iefix") format("eot"), url("/static/fonts/TiemposTextWeb-Regular.woff") format("woff"), url("/static/fonts/TiemposTextWeb-Regular.svg") format("svg"), local("☺");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Tiempos";
+  src: url("/static/fonts/TiemposTextWeb-Semibold.eot");
+  src: local("☺"), url("/static/fonts/TiemposTextWeb-Semibold.eot?iefix") format("eot"), url("/static/fonts/TiemposTextWeb-Semibold.woff") format("woff"), url("/static/fonts/TiemposTextWeb-Semibold.svg") format("svg"), local("☺");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Tiempos";
+  src: url("/static/fonts/TiemposTextWeb-Semibold.eot");
+  src: local("☺"), url("/static/fonts/TiemposTextWeb-Semibold.eot?iefix") format("eot"), url("/static/fonts/TiemposTextWeb-Semibold.woff") format("woff"), url("/static/fonts/TiemposTextWeb-Semibold.svg") format("svg"), local("☺");
+  font-weight: 700;
+  font-style: italic;
+}
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.readNextNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  font-family: Circular, Helvetica, Arial, sans-serif;
+  background-color: #f8f7f3;
+}
+
+.readNextNav.is-dimmed .l-readNextNav-menu,
+.readNextNav.is-dimmed .l-readNextNav-stories {
+  opacity: .3;
+  -webkit-filter: grayscale(100%);
+}
+
+.l-readNextNav-menu,
+.l-readNextNav-stories {
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.l-readNextNav-menu {
+  position: absolute;
+  width: 200px;
+  height: 72px;
+}
+
+.l-readNextNav-stories {
+  padding-top: 5px;
+  margin-left: 200px;
+  height: 72px;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.readNextNav-titleMod {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  width: 30px;
+}
+
+.readNextNav-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: Tiempos, Georgia, Times, serif;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 2px;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-name: titleAnimation;
+          animation-name: titleAnimation;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-transform: translateX(-60px);
+      -ms-transform: translateX(-60px);
+          transform: translateX(-60px);
+  -webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.readNextNav-titleRotate {
+  display: block;
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+      -ms-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+          transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+}
+
+.readNextNav-topics {
+  margin-left: 30px;
+}
+
+.readNextNav-topics > * + * {
+  border-top: 1px dotted #ccc;
+}
+
+.readNextNav-topicLink {
+  display: block;
+  padding: 5px 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.readNextNav-topicLink:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.readNextNav-topicLink.is-active {
+  position: relative;
+  background-color: #ffe000;
+}
+.readNextNav-topicLink.is-active:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: -1px;
+  right: -10px;
+  -ms-transform: rotate(0.1deg);
+  -webkit-transform: rotate(0.1deg);
+  transform: rotate(0.1deg);
+  border-top: 12.5px solid transparent;
+  border-bottom: 12.5px solid transparent;
+  border-left: 10px solid #ffe000;
+  border-right: 0px solid transparent;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  z-index: 1000;
+}
+
+.readNextNav-topic {
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-name: topicAnimation;
+          animation-name: topicAnimation;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  opacity: 0;
+  -webkit-transform: translateY(-60px);
+      -ms-transform: translateY(-60px);
+          transform: translateY(-60px);
+  -webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.readNextNav-topic {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+.readNextNav-topic + .readNextNav-topic {
+  -webkit-animation-delay: 0.22s;
+          animation-delay: 0.22s;
+}
+.readNextNav-topic + .readNextNav-topic + .readNextNav-topic {
+  -webkit-animation-delay: 0.34s;
+          animation-delay: 0.34s;
+}
+
+.readNextNav-stories {
+  width: 1250px;
+  margin-left: -20px;
+  *zoom: 1;
+}
+.readNextNav-stories:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.readNextNav-stories > .readNextNav-story {
+  float: left;
+  padding-left: 20px;
+  width: 20%;
+}
+.readNextNav-stories > .readNextNav-story:nth-of-type(5n+6) {
+  clear: left;
+}
+.readNextNav-stories > .readNextNav-story.n6 {
+  clear: left;
+}
+
+.readNextNav-stories > * + * {
+  position: relative;
+}
+.readNextNav-stories > * + *:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  width: 1px;
+  background-color: #e5e5e5;
+}
+
+.readNextNav-story {
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-name: storyAppearsAnimation;
+          animation-name: storyAppearsAnimation;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  opacity: 0.01;
+  -webkit-transform: translateX(-60px);
+      -ms-transform: translateX(-60px);
+          transform: translateX(-60px);
+  -webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.readNextNav-story {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+.readNextNav-story + .readNextNav-story {
+  -webkit-animation-delay: 0.32s;
+          animation-delay: 0.32s;
+}
+.readNextNav-story + .readNextNav-story + .readNextNav-story {
+  -webkit-animation-delay: 0.44s;
+          animation-delay: 0.44s;
+}
+.readNextNav-story + .readNextNav-story + .readNextNav-story + .readNextNav-story {
+  -webkit-animation-delay: 0.56s;
+          animation-delay: 0.56s;
+}
+.readNextNav-story + .readNextNav-story + .readNextNav-story + .readNextNav-story + .readNextNav-story {
+  -webkit-animation-delay: 0.68s;
+          animation-delay: 0.68s;
+}
+
+.readNextNav-storyLink {
+  *zoom: 1;
+  display: block;
+  padding: 6px;
+  max-height: 65px;
+  overflow: hidden;
+}
+.readNextNav-storyLink:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.readNextNav-storyLink > .art-bd,
+.readNextNav-storyLink > .txt-bd {
+  display: block;
+}
+.readNextNav-storyLink > .art-bd {
+  width: 45px;
+  float: left;
+  margin: 0;
+}
+.readNextNav-storyLink > .art-bd > img,
+.readNextNav-storyLink > .art-bd > .art {
+  width: 100%;
+  max-width: 100%;
+}
+.readNextNav-storyLink > .txt-bd {
+  margin-left: 59px;
+}
+
+.readNextNav-story-h {
+  font-size: 12px;
+  line-height: 130%;
+  color: #000;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.readNextNav-story-h:hover {
+  color: #275c2d;
+}
+
+.readNextNav-story-sub {
+  /* display: none; */
+}
+
+.readNextNav-storyTxt-bd {
+  max-height: 65px;
+  overflow: hidden;
+}
+
+.readNextNav-storyArt {
+  border-radius: 50%;
+}
+
+@-webkit-keyframes storyAppearsAnimation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-60px);
+            transform: translateX(-60px);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes storyAppearsAnimation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-60px);
+            transform: translateX(-60px);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@-webkit-keyframes topicAnimation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-60px);
+            transform: translateY(-60px);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes topicAnimation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-60px);
+            transform: translateY(-60px);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@-webkit-keyframes titleAnimation {
+  0% {
+    -webkit-transform: translateX(-60px);
+            transform: translateX(-60px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@keyframes titleAnimation {
+  0% {
+    -webkit-transform: translateX(-60px);
+            transform: translateX(-60px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+.l-article-width {
+  max-width: 540px;
+  margin: auto;
+  padding: 0 10px;
+}
+
+.article-txt {
+  font-family: Tiempos, Georgia, Times, serif;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 175%;
+  color: #000;
+}
+.article-txt > * + * {
+  margin-top: 24px;
+}

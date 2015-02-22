@@ -1,0 +1,41 @@
+// =============================================
+
+//  Type
+
+// =============================================
+
+@mixin font(
+  $font-family: false, //sans, serif, etc.
+  $font-size: false,
+  $font-weight: false,
+  $font-style: false
+  ){
+
+  // Set font-family
+  @if $font-family {
+    @if $font-family == "sans" {
+      font-family: $sans;
+    }
+    @elseif $font-family == "serif" {
+      font-family: $serif;
+    }
+    @else {
+      font-family: $font-family;
+    }
+  }
+
+  // Set font-size
+  @if $font-size {
+    font-size: $font-size;
+  }
+
+  // Set font-weight
+  @if $font-weight {
+    font-weight: $font-weight;
+  }
+
+  // Set font-style
+  @if $font-style {
+    font-style: $font-style;
+  }
+} // font mixin

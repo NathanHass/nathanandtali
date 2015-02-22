@@ -1,0 +1,98 @@
+// =============================================
+
+//  Fonts
+
+// =============================================
+
+@mixin font-face(
+  $family-name,
+  $file-name,
+  $weight: normal,
+  $style: normal
+  ){
+    @font-face {
+      $font-path: "/static/fonts/#{$file-name}";
+      font-family: "#{$family-name}";
+      src: url($font-path + '.eot');
+      src: local('☺'),
+         url($font-path + '.eot?iefix') format('eot'),
+         url($font-path + '.woff') format('woff'),
+         url($font-path + '.svg') format('svg'),
+         local('☺');
+      font-weight: $weight;
+      font-style: $style;
+  }
+}
+
+
+//
+// Circular
+//
+
+@include font-face(
+  Circular,
+  circular-book
+);
+
+@include font-face(
+  Circular,
+  circular-book-italic,
+  $font-weight--reg,
+  italic
+);
+
+@include font-face(
+  Circular,
+  circular-bold,
+  $font-weight--bold
+);
+
+@include font-face(
+  Circular,
+  circular-black,
+  $font-weight--black
+);
+
+
+//
+// Tiempos
+//
+
+@include font-face(
+  Tiempos,
+  TiemposHeadlineWeb-Black,
+  $font-weight--black
+);
+
+@include font-face(
+  Tiempos,
+  Tiempos-HeadlineWeb-Black,
+  $font-weight--black,
+  italic
+);
+
+@include font-face(
+  Tiempos,
+  TiemposTextWeb-Regular,
+  $font-weight--reg
+);
+
+@include font-face(
+  Tiempos,
+  TiemposTextWeb-Regular,
+  $font-weight--reg,
+  italic
+);
+
+@include font-face(
+  Tiempos,
+  TiemposTextWeb-Semibold,
+  $font-weight--bold
+);
+
+@include font-face(
+  Tiempos,
+  TiemposTextWeb-Semibold,
+  $font-weight--bold,
+  italic
+);

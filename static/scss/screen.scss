@@ -1,0 +1,346 @@
+@import "base";
+@import "partials/variables";
+@import "partials/fonts";
+@import "partials/type";
+
+
+body {
+  text-rendering: optimizeLegibility;
+
+  // Autoprefixer does not support these properties
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// This makes sure that all links take on a
+// normal-looking style (not internet standard
+// default blue/purple) no matter where invoked
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+// =============================================
+
+//  Read Next Nav
+
+// =============================================
+
+
+.readNextNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $zIndex--readNextNav;
+
+  @include font(sans);
+  background-color: $color--bg;
+}
+
+.readNextNav.is-dimmed {
+  .l-readNextNav-menu,
+  .l-readNextNav-stories {
+    opacity: .3;
+    -webkit-filter: grayscale(100%);
+  }
+}
+
+// --------------------------------------------
+// Layout
+// --------------------------------------------
+
+$readNextNav-height: 72px;
+
+.l-readNextNav-menu,
+.l-readNextNav-stories {
+  @include trans;
+}
+
+// Positioning ensures that menu is clickable
+// even though it's technically covered by
+// its layout companion, ui-block-2
+.l-readNextNav-menu {
+  position: absolute;
+  width: 200px;
+  height: $readNextNav-height;
+}
+
+.l-readNextNav-stories {
+  padding-top: 5px;
+  margin-left: 200px;
+  height: $readNextNav-height;
+
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+// --------------------------------------------
+// Title
+// --------------------------------------------
+
+.readNextNav-titleMod {
+  @include absolute(0 n 0 0);
+  background-color: #000;
+  width: 30px;
+}
+
+.readNextNav-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  @include font(serif, 16px, $font-weight--black);
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 2px;
+
+  //Animation
+  animation-duration: 0.3s;
+  animation-name: titleAnimation;
+  animation-fill-mode: forwards;
+
+  transform: translateX(-60px);
+  @include trans(.5s, all, $animation-timing);
+}
+
+.readNextNav-titleRotate {
+  display: block;
+  transform:
+    translateX(-50%)
+    translateY(-50%)
+    rotate(-90deg);
+}
+
+
+// --------------------------------------------
+// Topics
+// --------------------------------------------
+
+.readNextNav-topics {
+  margin-left: 30px;
+}
+
+// Apply style to descendents only if
+// more than one element is present
+.readNextNav-topics > *+* {
+  border-top: 1px dotted #ccc;
+}
+
+.readNextNav-topicLink {
+  display: block;
+  padding: 5px 6px;
+
+  font-size: 11px;
+  font-weight: $font-weight--bold;
+  text-transform: uppercase;
+  @include trans;
+
+  &:hover {
+    background-color: rgba(0,0,0,.05);
+  }
+}
+
+.readNextNav-topicLink.is-active {
+  position: relative;
+  background-color: $color--highlight;
+  &:after {
+    @include psuedo(-1px -10px n n);
+    @include triangle(right, 10px, $color--highlight, 1.25);
+    @include trans;
+    z-index: $zIndex--readNextNav;
+    }
+}
+
+.readNextNav-topic {
+  //Animation
+  animation-duration: 0.5s;
+  animation-name: topicAnimation;
+  animation-fill-mode: forwards;
+
+  opacity: 0;
+  transform: translateY(-60px);
+  @include trans(.5s, all, $animation-timing);
+
+  // Add timing delays
+  $animationStart: .1s;
+  $animationDelay: .12s;
+  & {
+    animation-delay: $animationStart;
+  }
+  & + & {
+    animation-delay: $animationStart + $animationDelay;
+  }
+  & + & + & {
+    animation-delay: $animationStart + ($animationDelay * 2);
+  }
+}
+
+
+// --------------------------------------------
+// Story Teases
+// --------------------------------------------
+
+.readNextNav-stories {
+  width: 1250px;
+
+  @include media-grid(
+    $num: 5,
+    $pad: 20px,
+    $target: '.readNextNav-story');
+}
+
+// Apply style to descendents only if
+// more than one element is present
+.readNextNav-stories > *+* {
+  position: relative;
+  &:after {
+    @include psuedo(0 n 0 10px);
+    width: 1px;
+    background-color: #e5e5e5;
+  }
+}
+
+.readNextNav-story {
+  animation-duration: 0.3s;
+  animation-name: storyAppearsAnimation;
+  animation-fill-mode: forwards;
+
+  opacity: 0.01;
+  transform: translateX(-60px);
+  @include trans(.5s, all, $animation-timing);
+
+  // Add timing delays
+  $animationStart: .2s;
+  $animationDelay: .12s;
+  & {
+    animation-delay: $animationStart;
+  }
+  & + & {
+    animation-delay: $animationStart + $animationDelay;
+  }
+  & + & + & {
+    animation-delay: $animationStart + ($animationDelay * 2);
+  }
+  & + & + & + & {
+    animation-delay: $animationStart + ($animationDelay * 3);
+  }
+  & + & + & + & + & {
+    animation-delay: $animationStart + ($animationDelay * 4);
+  }
+}
+
+.readNextNav-storyLink {
+  @include pair(45px, 14px, top);
+
+  display: block;
+  padding: 6px;
+  max-height: 65px;
+  overflow: hidden;
+}
+
+.readNextNav-story-h {
+  font-size: 12px;
+  line-height: 130%;
+  color: #000;
+  @include trans;
+  &:hover {
+    color: $color--triangle;
+  }
+}
+
+.readNextNav-story-sub {
+  /* display: none; */
+}
+
+.readNextNav-storyTxt-bd {
+  max-height: 65px;
+  overflow: hidden;
+}
+
+.readNextNav-storyArt {
+  border-radius: 50%;
+}
+
+
+
+// --------------------------------------------
+// Animations
+// --------------------------------------------
+
+// Story Tease Animation
+// - - - - - - - - - - - - - - - - - - -
+// Teases cascade into view
+
+@keyframes storyAppearsAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Topic Animation
+// - - - - - - - - - - - - - - - - - - -
+// Topics cascade into view
+
+@keyframes topicAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Title Animation
+// - - - - - - - - - - - - - - - - - - -
+// 'Next' text slides into view
+
+@keyframes titleAnimation {
+  0% {
+    transform: translateX(-60px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+// =============================================
+
+//  Articles
+
+// =============================================
+
+.l-article-width {
+  max-width: 540px;
+  margin: auto;
+  padding: 0 10px;
+}
+
+.article-txt {
+  @include font(serif, 17px, $font-weight--reg);
+  line-height: 175%;
+  color: #000;
+  > *+* {
+    margin-top: 24px;
+  }
+}
+
+
+
+

@@ -37,9 +37,12 @@ a {
 
   @include font(sans);
   background-color: $color--bg;
+  border-bottom: 1px solid #ccc;
 }
 
 .readNextNav.is-dimmed {
+  border-bottom-color: #e5e5e5;
+
   .l-readNextNav-menu,
   .l-readNextNav-stories {
     opacity: .3;
@@ -68,12 +71,27 @@ $readNextNav-height: 72px;
 }
 
 .l-readNextNav-stories {
-  padding-top: 5px;
   margin-left: 200px;
   height: $readNextNav-height;
 
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
+}
+
+.readNextNav-story {
+  height: $readNextNav-height;
+}
+
+  // Story progress bar
+.readNextNav-story {
+  &:before {
+    @include psuedo(0 n 0 n);
+    background-color: $color--bgOverlay;
+  }
+// Show progress bar only on first story
+  &:first-child:before {
+    width: 50%;
+  }
 }
 
 
@@ -121,6 +139,8 @@ $readNextNav-height: 72px;
 
 .readNextNav-topics {
   margin-left: 30px;
+  padding-right: 10px;
+  background-color: $color--bgOverlay;
 }
 
 // Apply style to descendents only if
@@ -132,6 +152,7 @@ $readNextNav-height: 72px;
 .readNextNav-topicLink {
   display: block;
   padding: 5px 6px;
+  background-color: $color--bg;
 
   font-size: 11px;
   font-weight: $font-weight--bold;
@@ -233,11 +254,13 @@ $readNextNav-height: 72px;
 }
 
 .readNextNav-storyLink {
+  position: relative;
+  z-index: $zIndex--readNextNav;
   @include pair(45px, 14px, top);
 
   display: block;
-  padding: 6px;
-  max-height: 65px;
+  padding: 12px 6px 6px;
+  height: $readNextNav-height;
   overflow: hidden;
 }
 
@@ -247,12 +270,24 @@ $readNextNav-height: 72px;
   color: #000;
   @include trans;
   &:hover {
-    color: $color--triangle;
+    color: $color--hollywood;
   }
 }
 
-.readNextNav-story-sub {
+// Set hover state colors for Triangle & HP
+.triangle .readNextNav-story-h:hover {
+    color: $color--triangle;
+}
+
+.hollywood .readNextNav-story-h:hover {
+    color: $color--hollywood;
+}
+
+
+.readNextNav-story-sub,
+.readNextNav-story-byline {
   /* display: none; */
+  color: #666;
 }
 
 .readNextNav-storyTxt-bd {
@@ -263,6 +298,27 @@ $readNextNav-height: 72px;
 .readNextNav-storyArt {
   border-radius: 50%;
 }
+
+
+
+// --------------------------------------------
+// NBA Example
+// --------------------------------------------
+
+.nba {
+
+  // Make the machead bigger
+  .readNextNav-story-mac {
+    font-size: 13px;
+  }
+
+  .readNextNav-story-sub {
+    display: none;
+  }
+
+}
+
+
 
 
 
@@ -339,6 +395,16 @@ $readNextNav-height: 72px;
   > *+* {
     margin-top: 24px;
   }
+}
+
+.article-img-mod {
+  width: 1200px;
+  margin: 20px auto 0;
+}
+
+.article-img {
+  display: block;
+  margin-left: -100px;
 }
 
 

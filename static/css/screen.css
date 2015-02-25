@@ -359,11 +359,15 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 100;
   font-family: Circular, Helvetica, Arial, sans-serif;
-  background-color: #f8f7f3;
+  background-color: #faf9f6;
+  border-bottom: 1px solid #ccc;
 }
 
+.readNextNav.is-dimmed {
+  border-bottom-color: #e5e5e5;
+}
 .readNextNav.is-dimmed .l-readNextNav-menu,
 .readNextNav.is-dimmed .l-readNextNav-stories {
   opacity: .3;
@@ -383,11 +387,26 @@ a {
 }
 
 .l-readNextNav-stories {
-  padding-top: 5px;
   margin-left: 200px;
   height: 72px;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
+}
+
+.readNextNav-story {
+  height: 72px;
+}
+
+.readNextNav-story:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: #e9e6d9;
+}
+.readNextNav-story:first-child:before {
+  width: 50%;
 }
 
 .readNextNav-titleMod {
@@ -431,6 +450,8 @@ a {
 
 .readNextNav-topics {
   margin-left: 30px;
+  padding-right: 10px;
+  background-color: #e9e6d9;
 }
 
 .readNextNav-topics > * + * {
@@ -440,6 +461,7 @@ a {
 .readNextNav-topicLink {
   display: block;
   padding: 5px 6px;
+  background-color: #faf9f6;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -469,7 +491,7 @@ a {
   border-right: 0px solid transparent;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
-  z-index: 1000;
+  z-index: 100;
 }
 
 .readNextNav-topic {
@@ -571,10 +593,12 @@ a {
 }
 
 .readNextNav-storyLink {
+  position: relative;
+  z-index: 100;
   *zoom: 1;
   display: block;
-  padding: 6px;
-  max-height: 65px;
+  padding: 12px 6px 6px;
+  height: 72px;
   overflow: hidden;
 }
 .readNextNav-storyLink:after {
@@ -608,11 +632,21 @@ a {
   transition: all 0.2s ease-in;
 }
 .readNextNav-story-h:hover {
+  color: #223f99;
+}
+
+.triangle .readNextNav-story-h:hover {
   color: #275c2d;
 }
 
-.readNextNav-story-sub {
+.hollywood .readNextNav-story-h:hover {
+  color: #223f99;
+}
+
+.readNextNav-story-sub,
+.readNextNav-story-byline {
   /* display: none; */
+  color: #666;
 }
 
 .readNextNav-storyTxt-bd {
@@ -622,6 +656,13 @@ a {
 
 .readNextNav-storyArt {
   border-radius: 50%;
+}
+
+.nba .readNextNav-story-mac {
+  font-size: 13px;
+}
+.nba .readNextNav-story-sub {
+  display: none;
 }
 
 @-webkit-keyframes storyAppearsAnimation {
@@ -720,4 +761,14 @@ a {
 }
 .article-txt > * + * {
   margin-top: 24px;
+}
+
+.article-img-mod {
+  width: 1200px;
+  margin: 20px auto 0;
+}
+
+.article-img {
+  display: block;
+  margin-left: -100px;
 }

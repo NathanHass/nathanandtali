@@ -51,7 +51,10 @@ $(function() {
   // --------------------------------------------
 
   function dimNav(){
+    var scrollTop = $(window).scrollTop();
+    if (scrollTop > initialScroll && scrollTop != 0 && scrollTop < bottomThreshold ) {
       $readNextNav.addClass('is-dimmed');
+    }
   };
 
   function brightenNav(){
@@ -60,8 +63,9 @@ $(function() {
 
 
   // Capture initial scroll position
-  var initialScroll = $(window).scrollTop();
+  var initialScroll = $(window).scrollTop() + 25;
   var bottomThreshold = $(document).height() - $(window).height();
+  var bottomThreshold = 18912;
 
   // Dim the nav only if initial scroll position changes
   $(window).scroll(function(){

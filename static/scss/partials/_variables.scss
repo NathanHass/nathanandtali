@@ -30,8 +30,8 @@ $font-weight--black: 900;
 
 // Palette
 $color--highlight: #ffe000; //yellow
-$color--bg: #f8f7f3; //grey
-$color--bgOverlay: darken($color--bg, 3%);
+$color--bg: lighten(#f8f7f3, 1%); //grey
+$color--bgOverlay: darken($color--bg, 9%);
 $color--triangle: #275c2d; //green
 $color--hollywood: #223f99; //purple
 
@@ -54,7 +54,7 @@ $zIndex-10: 1000;
 
 // Application
 
-$zIndex--readNextNav: $zIndex-10;
+$zIndex--readNextNav: $zIndex-1;
 
 
 // --------------------------------------------

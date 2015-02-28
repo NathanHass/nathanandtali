@@ -1,0 +1,22 @@
+// =============================================
+
+//  Universal Styles
+
+// =============================================
+
+body {
+  text-rendering: optimizeLegibility;
+  -moz-font-feature-settings: “liga” on;
+
+  // Autoprefixer does not support these properties
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// This makes sure that all links take on a
+// normal-looking style (not internet standard
+// default blue/purple) no matter where invoked
+a {
+  color: inherit;
+  text-decoration: none;
+}

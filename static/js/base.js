@@ -11,20 +11,24 @@ $(function() {
 
   var $readNextNav = $('.readNextNav');
   var $topicItem = $('.readNextNav-topicLink');
-
+  var $body = $('body');
 
   // --------------------------------------------
   // Ellipsis
   // --------------------------------------------
 
+  var $ellipsisEnabled = $body.hasClass('ellipsis-enabled');
+
   var forEach = Array.prototype.forEach;
   var els = document.getElementsByClassName('readNextNav-storyTxt-bd');
 
-  forEach.call(els, function(el) {
-    var ellipsis = new Ellipsis(el);
-    ellipsis.calc();
-    ellipsis.set();
-  });
+  if($ellipsisEnabled) {
+    forEach.call(els, function(el) {
+      var ellipsis = new Ellipsis(el);
+      ellipsis.calc();
+      ellipsis.set();
+    });
+  }
 
 
   // --------------------------------------------
@@ -43,6 +47,19 @@ $(function() {
       $this.addClass('is-active');
       topicIsActive = false;
     }
+  });
+
+
+  // --------------------------------------------
+  // Close Menu
+  // --------------------------------------------
+
+  var $closeBtn = $('.readNextNav-closeBtn');
+
+  $closeBtn.on('click', function(){
+    event.preventDefault();
+
+    $body.addClass('readNextNav-is-closed');
   });
 
 
@@ -68,18 +85,35 @@ $(function() {
   var bottomThreshold = 18912;
 
   // Dim the nav only if initial scroll position changes
-  $(window).scroll(function(){
-    var scrollTop = $(window).scrollTop();
+  // $(window).scroll(function(){
+  //   var scrollTop = $(window).scrollTop();
 
-    if (scrollTop > initialScroll && scrollTop != 0 && scrollTop < bottomThreshold ) {
-      dimNav();
-    } else {
-      brightenNav();
-    }
-  });
+  //   if (scrollTop > initialScroll && scrollTop != 0 && scrollTop < bottomThreshold ) {
+  //     dimNav();
+  //   } else {
+  //     brightenNav();
+  //   }
+  // });
 
   // Remove dimmer if user interacts with nav
-  $readNextNav.hover(brightenNav, dimNav);
+  //$readNextNav.hover(brightenNav, dimNav);
+
+
+  // --------------------------------------------
+  // Story Progress Bar
+  // --------------------------------------------
+
+  // Advance story progress bar as user scrolls
+  $(window).scroll(function(){
+    var scrollTop = $(window).scrollTop();
+    var storyProgress = scrollTop / 100;
+    var $el_storyProgress = $('.readNextNav-storyProgress');
+
+    $el_storyProgress.css('width', storyProgress + '%');
+
+    //console.log(scrollTop);
+    //console.log(storyProgress + '%');
+  });
 
 
   // $(document).on( 'scroll', 'window', function(){

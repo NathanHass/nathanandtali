@@ -345,6 +345,7 @@ button {
 }
 body {
   text-rendering: optimizeLegibility;
+  -moz-font-feature-settings: “liga” on;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -363,6 +364,13 @@ a {
   font-family: Circular, Helvetica, Arial, sans-serif;
   background-color: #faf9f6;
   border-bottom: 1px solid #ccc;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.readNextNav-is-closed .readNextNav {
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
 }
 
 .readNextNav.is-dimmed {
@@ -372,6 +380,35 @@ a {
 .readNextNav.is-dimmed .l-readNextNav-stories {
   opacity: .3;
   -webkit-filter: grayscale(100%);
+}
+
+.readNextNav-closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 22px;
+  height: 22px;
+  padding: 1px 5px;
+  background-color: #000;
+  box-shadow: 5px 5px 0 #FAF9F6, -5px -5px 0 #FAF9F6;
+  font-family: Circular, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.readNextNav-closeBtn:hover {
+  background-color: #ffe000;
+}
+
+.triangle .readNextNav-closeBtn:hover {
+  background-color: #275c2d;
+}
+
+.hollywood .readNextNav-closeBtn:hover {
+  background-color: #223f99;
 }
 
 .l-readNextNav-menu,
@@ -397,16 +434,11 @@ a {
   height: 72px;
 }
 
-.readNextNav-story:before {
-  content: " ";
-  display: block;
+.readNextNav-storyProgress {
   position: absolute;
   top: 0;
   bottom: 0;
   background-color: #e9e6d9;
-}
-.readNextNav-story:first-child:before {
-  width: 50%;
 }
 
 .readNextNav-titleMod {
@@ -451,7 +483,6 @@ a {
 .readNextNav-topics {
   margin-left: 30px;
   padding-right: 10px;
-  background-color: #e9e6d9;
 }
 
 .readNextNav-topics > * + * {
@@ -747,7 +778,7 @@ a {
   }
 }
 .l-article-width {
-  max-width: 540px;
+  max-width: 615px;
   margin: auto;
   padding: 0 10px;
 }
@@ -761,11 +792,12 @@ a {
 }
 .article-txt > * + * {
   margin-top: 24px;
+  margin-left: 95px;
 }
 
 .article-img-mod {
   width: 1200px;
-  margin: 20px auto 0;
+  margin: 35px auto 0;
 }
 
 .article-img {

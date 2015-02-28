@@ -1,0 +1,234 @@
+/* Bring in all Compass Helpers as well as Tito's base style files */
+@import "base";
+@import "partials/variables";
+@import "partials/fonts";
+@import "partials/type";
+@import "partials/universal";
+
+
+$style-sans: "Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
+$nav-width: 220px;
+$neg-nav-width: -220px;
+$trans-time: .15s;
+$color--upsHighlight: #27B99E;
+
+//
+// iframe
+//
+
+.style-guide-inner {
+	@include transition-property(transform, width);
+	@include transition-duration(.2s, .4s);
+	@include transition-timing-function(ease-in, ease-in);
+	.nav-active & {
+		@include translateX($nav-width);
+	}
+	margin: 0 auto;
+	display: block;
+	height: 15000px;
+	.auto & {
+		width: 100%;
+	}
+	.large & {
+		width: 1074px;
+	}
+	.medium & {
+		width: 680px;
+	}
+	.small & {
+		width: 320px;
+	}
+	.sticky & {
+		margin-top: 40px;
+	}
+}
+
+//
+// Layout
+//
+
+
+.style-layout {
+	margin: 0 auto;
+}
+
+.style-bd-outer,
+.style-bd-inner {
+	@include trans($trans-time, width);
+	background-color: #f6f6f6
+}
+
+.style-bd-outer {
+	overflow-y: scroll;
+}
+
+.style-content {
+	// @include trans(.3s);
+	@extend .style-layout;
+	padding: 40px 20px 35px;
+	background-color: #f6f6f6;
+	@include pie-clearfix;
+	.sticky & {
+		margin-top: 80px;
+	}
+	.nav-active & {
+		 @include transform(translate3d($nav-width,0,0));
+	}
+}
+
+.style-main {
+	margin: 0 auto;
+	max-width:1074px;
+}
+
+i {
+	font-style: normal;
+}
+
+
+//
+// Header
+//
+
+.style-hdr {
+	background-color: #000;
+	padding: 25px 30px 20px;
+	position: relative;
+	@include pie-clearfix;
+	border-bottom: 1px solid #fff;
+	min-width: 700px;
+}
+
+.style-page-h {
+	font: normal bold em(28) $sans;
+	color: #fff;
+	float: left;
+	.thin {
+		font-weight: normal;
+	}
+}
+
+.upstatement-logo {
+	float: right;
+	width: 120px;
+	margin-top:2px;
+}
+
+
+
+//
+// Pages
+//
+
+.page-browser {
+	background-color: #f5f5f5;
+	margin-bottom: 120px;
+}
+
+.browser-mod {
+	background-color: #fff;
+	margin: 0 auto 80px;
+	//max-width: 1400px;
+	@media (min-width: 960px) {
+		//width: 90%;
+		border: 1px solid #e5e5e5;
+		border-top: 0;
+	}
+}
+
+.browser-h {
+	font: bold 10px $sans;
+	padding: 10px 5%;
+	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	background-color: #ededed;
+	border-bottom: #ddd;
+	@media (min-width: 600px) {
+		font-size: 11px;
+	}
+}
+
+.browser-list {
+	font: normal 16px $sans;
+	@media (min-width: 600px) {
+		font-size: 21px;
+	}
+	> li > a {
+		display: block;
+		color: #222;
+		text-decoration: none;
+		padding: 12px 35px 12px 5%;
+		border-bottom: 1px solid #ededed;
+		position: relative;
+      @include trans(.1s);
+		@media (min-width: 600px) {
+			padding: 14px 5%;
+		}
+		&:before,
+		&:after {
+			content:'';
+			position: absolute;
+			z-index: 56;
+          @include trans(.1s);
+		}
+		&:before {
+			top: 50%;
+			margin-top: -7px;
+			right: 20px;
+			@include triangle (right, 8px, #000);
+			@include opacity(.15);
+		}
+		&:after {
+			top: 50%;
+			margin-top: -6px;
+			right: 22px;
+			@include triangle(right, 7px, #fff);
+		}
+		&:hover:before {
+			border-left-color: #fff;
+			@include opacity(1);
+		}
+		&:hover:after {
+			border-left-color: $color--upsHighlight;
+		}
+		&:hover {
+			color: #fff;
+			background-color: $color--upsHighlight;
+			@include text-shadow(rgba(0,0,0,.1) 0 -1px 0);
+			.change-log-txt {
+				color: #fff;
+			}
+			.change-log-code {
+				color: darken($color--upsHighlight, 4%);
+				opacity: .8;
+			}
+		}
+	}
+
+} // browser-list
+
+.change-log-txt {
+	font-size: 14px;
+	line-height: 155%;
+	max-width: 650px;
+	font-weight: 400;
+	margin-top: 5px;
+	color: #666;
+	@include mq(600px) {
+		font-size: 16px;
+	}
+}
+
+.change-log-code {
+	font-family: monospace;
+	color: black;
+	font-size: .9em;
+}
+
+.browser-list-sub {
+	display: block;
+	color: #999;
+	font: normal 11px $sans;
+	text-rendering: optimizeLegibility;
+}

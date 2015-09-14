@@ -1,0 +1,25 @@
+@import "partials/variables";
+@import "partials/reset";
+
+@import "partials/upbase/scss/upbase.scss";
+@import "partials/animations";
+@import "partials/fonts";
+
+@import "partials/index";
+@import "partials/details";
+@import "partials/registry";
+@import "partials/nav";
+
+
+
+html {
+  background-color: #FFF;
+  display: block;
+}
+
+body {
+  font-family: $sans;
+}
+
+a {  text-decoration: none; color: inherit; }
+

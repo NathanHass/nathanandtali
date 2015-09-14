@@ -1,0 +1,25 @@
+$sans: 'montserrat', sans-serif;
+$serif: 'Playfair Display', serif;
+$grotesque: 'Work Sans', sans-serif;
+
+
+
+@mixin font($family: sans, $size: 16px, $weight: 400, $style: normal, $ls: 0, $caps:none) {
+
+  @if ($family == serif) or ($family == $serif) {
+    font-family: $serif;
+  }
+  @if ($family == sans) or ($family == $sans) {
+    font-family: $sans;
+  }
+  @if ($family == grotesque) or ($family == $grotesque) {
+    font-family: $grotesque;
+  }
+  letter-spacing: $ls;
+  font-size: $size;
+  font-weight: $weight;
+  font-style: $style;
+  @if $caps == caps {
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,5 @@
+# A sample Gemfile
+gem "jekyll-assets"
+gem "autoprefixer-rails"
+
+# gem "rails"

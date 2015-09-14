@@ -1,0 +1,131 @@
+
+.nav-width {
+  padding: 30px;
+  max-width: 1440px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.logo-mod {
+  width: 200px;
+  display: block;
+  margin: 0 auto;
+  @include mq(700px) {
+    width: 260px;
+  }
+}
+
+.logo {
+  display: block;
+  width: 100%;
+}
+
+.nav__list {
+  display: none;
+
+  .nav-is-open & {
+    display: block;
+  }
+
+  @include mq(max, 700px) {
+    @include absolute(100% 0 n 0);
+    z-index: 1;
+    background-color: #fff;
+  }
+
+  @include mq(700px) {
+    display: block;
+  }
+}
+
+.nav__item {
+  color: #444;
+  @include font($sans, 14px, 700, normal, 1px, caps);
+  &:visited {
+    color: initial;
+  }
+}
+
+.nav__item--registry {
+  @include mq(700px) {
+    @include absolute(0 n 0 0);
+  }
+}
+
+.nav__item--details {
+  @include mq(700px) {
+    @include absolute(0 0 0 n);
+  }
+}
+
+.nav__link {
+  padding: 10px;
+  display: block;
+  @include mq(700px) {
+    padding: 60px 50px 56px;
+    display: inline-block;
+  }
+}
+
+.mobile-nav-trigger {
+  @include reset-input;
+  @include absolute(0 0 0 n);
+  width: 70px;
+  padding: 0;
+  @include mq(700px) {
+    display: none;
+  }
+}
+
+
+$bar-height: 3px;
+$bar-offset: $bar-height + 3px;
+$bar-color: #AF853F;
+
+.mobile-nav-trigger--icon {
+  @include size(24px, $bar-height);
+  display: block;
+  position: relative;
+  position: absolute;
+  right: 50%;
+  margin-right: -12px;
+  margin-top: -2px;
+  height: $bar-height;
+  background-color: $bar-color;
+  transition: .1s;
+
+  &:before {
+    @include pseudo;
+    @include absolute(-($bar-offset) 0 n 0);
+    height: $bar-height;
+    background-color: $bar-color;
+    transform-origin: center bottom;
+    transition: .2s ease;
+  }
+
+  &:after {
+    @include pseudo;
+    @include absolute($bar-offset 0 n 0);
+    height: $bar-height;
+    background-color: $bar-color;
+    transform-origin: center top;
+    transition: .2s ease;
+  }
+
+  .nav-is-open & {
+    background-color: rgba(0,0,0,0);
+    transform: translateX(3px);
+    &:before {
+      left: 5px;
+      transform: rotate(45deg) translateY($bar-offset + 2);
+    }
+    &:after {
+      left: 5px;
+      transform: rotate(-45deg) translateY(-($bar-offset + 2));
+    }
+  }
+
+  @include mq(700px) {
+    display: none;
+  }
+}

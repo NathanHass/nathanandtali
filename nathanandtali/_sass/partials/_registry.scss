@@ -1,0 +1,29 @@
+
+.registry__link {
+  display: block;
+  @include font($serif, 35px, 300);
+  text-align: center;
+  color: #fff;
+  transition: color .2s ease, background-color .2s ease;
+  padding: 15px;
+  text-rendering: optimizeLegibility;
+
+  @include mq(450px) {
+    font-size: 55px;
+    padding: 30px;
+  }
+
+  @include mq(700px) {
+    font-size: 70px;
+    padding: 45px 50px 50px;
+  }
+
+  &:hover {
+    background-color: $green;
+  }
+}
+
+.registry {
+  min-height: calc(100vh - 134px);
+  background-color: #222;
+}

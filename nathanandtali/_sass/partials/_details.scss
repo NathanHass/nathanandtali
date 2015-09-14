@@ -1,0 +1,165 @@
+.details-mod {
+  min-height: calc(100vh - 134px);
+  background-color: #FFFFFF;
+  padding: 0 15px;
+}
+
+.details__topper {
+  position: relative;
+  z-index: 1;
+  background-color: #F7F7F7;
+  padding: 50px 15px;
+}
+
+.detail__topper__h {
+  text-align: center;
+  @include font($serif, 36px, 700);
+}
+
+.details__title {
+  @include font($serif, 36px, 700);
+  text-align: center;
+  color: #fff;
+  @include mq(700px) {
+    font-size: 70px;
+  }
+}
+
+
+.accom__block {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 30px 0;
+  border-bottom: 2px solid rgba(0, 0, 0, .1);
+  @include mq(700px) {
+    padding: 50px;
+  }
+  &:last-of-type {
+    border-bottom: 0;
+  }
+}
+
+.details-mod--activity {
+  background-color: #F7F7F7;
+  padding: 30px 15px;
+  @include mq(700px) {
+    padding: 100px 50px;
+  }
+}
+
+.accom__hotel-info__name {
+  @include font($serif, 30px, 700);
+  margin-bottom: 15px;
+  line-height: 1.1;
+  @include mq(500px) {
+    @include font($serif, 45px, 400);
+    margin-bottom: 10px;
+  }
+}
+
+.accom__hotel-info__phone,
+.accom__hotel-info__address {
+  @include font($sans, 14px, 700, normal, 1px, caps);
+  margin-bottom: 12px;
+  @include mq(500px) {
+    margin-bottom: 9px;
+    font-size: 15px;
+  }
+}
+
+
+.accom__hotel-info__name a,
+.accom__hotel-info__phone a,
+.accom__hotel-info__address a {
+  transition: color .2s ease;
+  &:hover {
+    color: $green;
+  }
+}
+
+.accom__hotel-info {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.accom__p {
+  @include font($grotesque, 18px, 400, normal, -0.4px);
+  line-height: 1.6;
+  margin-bottom: 18px;
+  @include mq(500px) {
+    font-size: 20px;
+  }
+}
+
+.accom__hotel__link {
+  display: block;
+  width: 180px;
+  margin: 40px auto 0;
+  padding: 12px 20px 10px;
+  border: 2px solid;
+  color: $green;
+  @include font($sans, 14px, 700, normal, 1px, caps);
+  border-radius: 3px;
+  transition: .2s ease;
+  text-align: center;
+  &:hover {
+    background-color: $green;
+    color: #fff;
+    border-color: $green;
+  }
+}
+
+//
+// activities!
+//
+
+.accom__block--activity {
+  @include mq(500px) {
+    text-align: center;
+  }
+}
+
+.activity__list {
+  margin-top: 50px;
+}
+
+.activity__link {
+  display: block;
+}
+
+.activity__item {
+  padding-bottom: 55px;
+  margin-bottom: 45px;
+  position: relative;
+  &:after {
+    @include pseudo;
+    @include absolute(n 50% 0 n);
+    width: 70px;
+    border-bottom: 3px solid $mint;
+    margin-right: -35px;
+  }
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    &:after {
+      display: none;
+    }
+  }
+}
+
+.activity__title {
+  @include font($serif, 24px, 700);
+  margin-bottom: 12px;
+  transition: color .2s ease;
+  @include mq(500px) {
+    font-size: 27px;
+  }
+  .activity__link:hover & {
+    color: $green;
+  }
+}
+
+.activity__description {
+  @include font($grotesque, 17px, 400, normal, -0.4px);
+  line-height: 1.5;
+}

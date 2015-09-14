@@ -1,0 +1,161 @@
+
+
+.name-small {
+  @include font(sans, 14px, bold, normal, 2px, caps);
+
+  @include mq(700px) {
+    font-size: 14px;
+  }
+}
+
+.body-content {
+}
+
+.content-block {
+  background-size: cover;
+  background-position: 50% 50%;
+  text-align: center;
+  display: table;
+  width: 100%;
+  padding: 30px 0;
+  background-color: #fff;
+  position: relative;
+
+  @include mq(700px) {
+    padding: 100px 0;
+  }
+
+  .no-touch & {
+    background-attachment: scroll, fixed;
+  }
+}
+
+.content-block-inner {
+  display: table-cell;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.content-block--image {
+  min-height: 90vh;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3), 0 0 70px rgba(0, 0, 0, 0.6);
+}
+
+.content-block--topper {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0)), url('/static/img/img.jpg');
+  background-position: bottom right;
+}
+
+.content-block--chapel {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0)), url('/static/img/chapel.jpg');
+}
+
+.intro-text-block__title {
+  @include font($serif, 30px, 700);
+  margin-bottom: 30px;
+  line-height: 1.1;
+  @include mq(500px) {
+    @include font($serif, 45px, 400);
+  }
+}
+
+
+.intro-text-block {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 0 15px;
+  @include mq(700px) {
+    padding: 0 50px;
+  }
+}
+
+.intro-text {
+  @include font($grotesque, 18px, 400, normal, -.4px);
+  line-height: 1.6;
+  color: #222;
+  text-align: left;
+  margin-bottom: 30px;
+  @include mq(700px) {
+    font-size: 20px;
+  }
+  a {
+    color: $green;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.small-title {
+  @include font(sans, 17px, 700, normal, 2px, caps);
+  margin-top: 30px;
+}
+
+.overline {
+  @include font(sans, 14px, 700, normal, 2px, caps);
+  margin-bottom: 40px;
+  position: relative;
+  color: $green;
+  line-height: 1.5;
+  .content-block--after-party &,
+  .content-block--image & {
+    color: #fff;
+  }
+  &:after {
+    @include pseudo;
+    @include absolute(n n -32px 50%);
+    width: 40px;
+    margin-left: -20px;
+    border-bottom: 2px solid;
+  }
+}
+
+.big-title {
+  @include font(serif, 36px, bold);
+  text-align: center;
+  color: #fff;
+  @include mq(700px) {
+    font-size: 70px;
+  }
+}
+
+.big-title--names {
+  @include font(serif, 30px, bold);
+  max-width: 830px;
+  margin: 0 auto;
+  @include mq(700px) {
+    font-size: 60px;
+  }
+}
+
+
+.content-block--info {
+  color: $green;
+  .big-title {
+    color: $green;
+  }
+}
+
+.content-block--masa {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0)), url('/static/img/masa-4.jpg');
+}
+
+.content-block--after-party {
+  min-height: 70vh;
+  background-color: #222;
+  .content-block--image {
+    color: #fff;
+  }
+}
+
+.map--iframe {
+  margin-top: -40px;
+  margin-bottom: -3px;
+  &.is-disabled {
+    pointer-events: none;
+  }
+}
